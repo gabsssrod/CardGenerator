@@ -7,7 +7,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link rel="shortcut icon" href="./4geeks.ico"></head>
     <body id="generateCard" onclick="generate()">
-        <div class="container-fluid" id="cardContainer">
+        <div class="container" id="cardContainer">
             <div class="card mb-3" style="max-width: 18rem;">
                 <div class="card-header header-color bg-transparent text-left" id="cardHeader"></div>
                 <div class="card-body">
@@ -16,9 +16,6 @@
                 <div class="card-footer footer-color bg-transparent text-right flipper" id="cardFooter"></div>
             </div>
         </div>
-
-
-
 
         <script>
             function generate(){
@@ -35,6 +32,8 @@
                     document.querySelector("#cardBody").innerHTML= bodyNumbers;
                     document.querySelector("#cardContainer").style.color= colors[Math.floor(Math.random() * colors.length)]
             }
+
+            generate()
 
             let input = document.querySelector("#generateCard");
                 input.addEventListener("keyup", function(event) {
