@@ -6,22 +6,43 @@
         <title>Hello Rigo with Vanilla.js</title>
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" integrity="sha384-hWVjflwFxL6sNzntih27bfxkr27PmbbK/iSvJ+a4+0owXq79v+lsFkW54bOGbiDQ" crossorigin="anonymous">
         <link rel="shortcut icon" href="./4geeks.ico"></head>
-    <body>
-        <div class="container text-center">
+    <body id="generateCard" onclick="generate()">
+        <div class="container-fluid text-center" id="cardContainer">
             <div class="card mb-3" style="max-width: 18rem;">
-                <div class="card-header bg-transparent">Header</div>
+                <div class="card-header header-color bg-transparent text-left" id="cardHeader"></div>
                 <div class="card-body">
-                    <h5 class="card-title">Success card title</h5>
+                    <h1 class="card-title body-color" id="cardBody"></h1>
                 </div>
-                <div class="card-footer bg-transparent">Footer</div>
+                <div class="card-footer footer-color bg-transparent text-right" id="cardFooter"></div>
             </div>
-        </div>  
+        </div>
+
+
+
 
         <script>
-        
-        
-        
-        
+            function generate(){
+                let header = ["&spades;", "&clubs;", "&hearts;", "&diams;"];
+                let body = ["A", 2, 3, 4, 5, 6, 7, 8, 9, 10, "J", "Q", "K"];    
+                let colors = ["red", "black"] 
+
+                let headerSuits = header[Math.floor(Math.random() * header.length)];
+                let bodyNumbers = body[Math.floor(Math.random() * body.length)];
+                
+                
+                    document.querySelector("#cardHeader").innerHTML= headerSuits
+                    document.querySelector("#cardFooter").innerHTML= headerSuits;
+                    document.querySelector("#cardBody").innerHTML= bodyNumbers;
+                    document.querySelector("#cardContainer").style.color= colors[Math.floor(Math.random() * colors.length)]
+            }
+
+            let input = document.querySelector("#generateCard");
+                input.addEventListener("keyup", function(event) {
+                if (event.keyCode === 13) {
+                event.preventDefault();
+                document.querySelector("#generateCard").click();}
+            });
+
         </script>
 
         <!-- do not remove this bundle.js tag -->
